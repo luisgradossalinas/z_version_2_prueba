@@ -4,11 +4,12 @@ $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 
-<p><a href="http://zend2.pe/application/index/add">Add new user</a></p>
+<p><a href="http://zend2.pe/application/index/add" class="btn btn-small btn-inverse">Add new user</a></p>
+ 
 
 <table class="table">
 <tr>
-    <th>ID</th>
+    <th>Cod</th>
     <th>Rol</th>
     <th>Email</th>
     <th>Opciones</th>
@@ -19,8 +20,8 @@ $this->headTitle($title);
     <td><?php echo $this->escapeHtml($usuario->rol);?></td>    
     <td><?php echo $this->escapeHtml($usuario->email);?></td>
     <td>
-        <a href="http://zend2.pe/application/index/edit/<?=$usuario->id?>">Edit</a>
-        <a href="http://zend2.pe/application/index/delete/<?=$usuario->id?>">Delete</a>
+        <a href="http://zend2.pe/application/index/edit/<?=$usuario->id?>" class="btn btn-small btn-inverse">Edit</a>
+        <a href="http://zend2.pe/application/index/delete/<?=$usuario->id?>" class="btn btn-small btn-inverse">Delete</a>
     </td>
 </tr>
 <?php endforeach; ?>
