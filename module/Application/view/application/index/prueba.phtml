@@ -1,0 +1,14 @@
+<table class="table-condensed">
+<tr>
+    <th>ID</th>
+    <th>Rol</th>
+    <th>Email</th>
+</tr>
+<?php foreach($usuarios as $usuario) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($usuario->id);?></td>
+    <td><?php echo $this->escapeHtml($usuario->rol);?></td>    
+    <td><?php echo $this->escapeHtml($usuario->email);?></td>
+</tr>
+<?php endforeach; ?>
+</table>
