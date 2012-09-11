@@ -23,24 +23,29 @@ class UsuarioTable extends AbstractTableGateway
         $resultSet = $this->select();
         return $resultSet;
     }
+    
+    public function inner()
+    {
+        
+    }
 
-    public function getAlbum($id)
+    public function get($id)
     {
         $id  = (int) $id;
-        $rowset = $this->select(array('id' => $id));
+        $rowset = $this->select(array('id' => $id));$this->
         $row = $rowset->current();
         if (!$row) {
-            throw new \Exception("Could not find row $id");
+            throw new \Exception("No se pudo encontrar el registro $id");
         }
         return $row;
     }
 
-    public function saveAlbum(Album $album)
+    public function save(Album $album)
     {
-        $data = array(
+        /*$data = array(
             'nombre' => $album->artist,
             'apellido'  => $album->title,
-        );
+        );*/
         $id = (int)$album->id;
         if ($id == 0) {
             $this->insert($data);
@@ -53,8 +58,9 @@ class UsuarioTable extends AbstractTableGateway
         }
     }
 
-    public function deleteAlbum($id)
+    public function delete($id)
     {
         $this->delete(array('id' => $id));
     }
+    
 }

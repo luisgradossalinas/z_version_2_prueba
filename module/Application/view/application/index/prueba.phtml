@@ -1,14 +1,27 @@
-<table class="table-condensed">
+<?php
+$title = 'Usuarios';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<p><a href="http://zend2.pe/application/index/add">Add new user</a></p>
+
+<table class="table">
 <tr>
     <th>ID</th>
     <th>Rol</th>
     <th>Email</th>
+    <th>Opciones</th>
 </tr>
 <?php foreach($usuarios as $usuario) : ?>
 <tr>
     <td><?php echo $this->escapeHtml($usuario->id);?></td>
     <td><?php echo $this->escapeHtml($usuario->rol);?></td>    
     <td><?php echo $this->escapeHtml($usuario->email);?></td>
+    <td>
+        <a href="http://zend2.pe/application/index/edit/<?=$usuario->id?>">Edit</a>
+        <a href="http://zend2.pe/application/index/delete/<?=$usuario->id?>">Delete</a>
+    </td>
 </tr>
 <?php endforeach; ?>
 </table>
