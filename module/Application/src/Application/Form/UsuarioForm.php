@@ -9,7 +9,7 @@ class UsuarioForm extends Form
     public function __construct()
     {
         // we want to ignore the name passed
-        //parent::__construct('usuario');
+        parent::__construct('usuario');
         $this->setAttribute('method', 'post');
         $this->add(array(
             'name' => 'id',
@@ -17,14 +17,13 @@ class UsuarioForm extends Form
                 'type'  => 'hidden',
             ),
         ));
-        
         $this->add(array(
             'name' => 'rol',
             'attributes' => array(
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Artist',
+                'label' => 'Rol:',
             ),
         ));
         $this->add(array(
@@ -33,7 +32,7 @@ class UsuarioForm extends Form
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Title',
+                'label' => 'E-mail',
             ),
         ));
         $this->add(array(
@@ -45,4 +44,5 @@ class UsuarioForm extends Form
             ),
         ));
     }
+    
 }

@@ -10,8 +10,7 @@
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
-use Application\Model\Usuario;          
+use Zend\View\Model\ViewModel;    
 use Application\Form\UsuarioForm;   
 
 
@@ -24,7 +23,7 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
     
-    public function pruebaAction()
+    public function listadoAction()
     {
         return new ViewModel(array(
             'usuarios' => $this->getUsuarioTable()->fetchAll(),
@@ -42,6 +41,11 @@ class IndexController extends AbstractActionController
     
     public function addAction()
     {
+        //Deshabilitar layout.phtml
+        //viewModel = new ViewModel();
+        //$viewModel->setTerminal(true);
+        //return $viewModel;
+
         $form = new UsuarioForm;
         $form->get('submit')->setValue('Add');
 
@@ -66,6 +70,37 @@ class IndexController extends AbstractActionController
 
     public function editAction()
     {
+        
+        echo "hola";exit;
+        //$id = (int) $this->params()->fromRoute('id', 0);
+        /*if (!$id) {
+            return $this->redirect()->toRoute('edit', array(
+                'action' => 'add'
+            ));
+        }*/
+        /*$usuario = $this->getUsuarioTable()->get($id);
+
+        $form  = new UsuarioForm();
+        $form->bind($usuario);
+        $form->get('submit')->setAttribute('value', 'Edit');
+
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $form->setInputFilter($usuario->getInputFilter());
+            $form->setData($request->getPost());
+
+            if ($form->isValid()) {
+                $this->getAlbumTable()->save($usuario);
+
+                // Redirect to list of albums
+                return $this->redirect()->toRoute('usuario');
+            }
+        }
+
+        return array(
+            'id' => $id,
+            'form' => $form,
+        );*/
     }
 
     public function deleteAction()
