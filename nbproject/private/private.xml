@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/var/www/zend2/module/Application/src/Application/Controller/IndexController.php</file>
-        <file>file:/var/www/zend2/module/Application/view/application/index/prueba.phtml</file>
-        <file>file:/var/www/zend2/module/Application/src/Application/Model/Usuario.php</file>
-        <file>file:/var/www/zend2/module/Application/src/Application/Model/UsuarioTable.php</file>
-        <file>file:/var/www/zend2/config/autoload/local.php</file>
-        <file>file:/var/www/zend2/config/autoload/global.php</file>
-    </open-files>
 </project-private>
