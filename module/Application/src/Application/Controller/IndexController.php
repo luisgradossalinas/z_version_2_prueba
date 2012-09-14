@@ -70,37 +70,32 @@ class IndexController extends AbstractActionController
 
     public function editAction()
     {
-        
-        echo "hola";exit;
-        //$id = (int) $this->params()->fromRoute('id', 0);
-        /*if (!$id) {
-            return $this->redirect()->toRoute('edit', array(
-                'action' => 'add'
-            ));
-        }*/
-        /*$usuario = $this->getUsuarioTable()->get($id);
-
         $form  = new UsuarioForm();
+
+        $id = 1;
+        /*$id = (int) $this->params()->fromRoute('id', 0);
+        if (!$id) {
+            return $this->redirect()->toRoute('index', array('action' => 'edit'));
+        }*/
+        $usuario = $this->getUsuarioTable()->getUser($id);
+        
         $form->bind($usuario);
         $form->get('submit')->setAttribute('value', 'Edit');
 
-        $request = $this->getRequest();
+        /*$request = $this->getRequest();
         if ($request->isPost()) {
-            $form->setInputFilter($usuario->getInputFilter());
+            $form->setInputFilter($album->getInputFilter());
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $this->getAlbumTable()->save($usuario);
+                $this->getAlbumTable()->saveAlbum($album);
 
                 // Redirect to list of albums
-                return $this->redirect()->toRoute('usuario');
+                return $this->redirect()->toRoute('album');
             }
-        }
+        }*/
 
-        return array(
-            'id' => $id,
-            'form' => $form,
-        );*/
+        return array('form' => $form);
     }
 
     public function deleteAction()

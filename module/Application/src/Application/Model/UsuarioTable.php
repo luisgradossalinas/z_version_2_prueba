@@ -29,10 +29,10 @@ class UsuarioTable extends TableGateway
         
     }
 
-    public function get($id)
+    public function getUser($id)
     {
         $id  = (int) $id;
-        $rowset = $this->select(array('id' => $id));$this->
+        $rowset = $this->select(array('id' => $id));
         $row = $rowset->current();
         if (!$row) {
             throw new \Exception("No se pudo encontrar el registro $id");
@@ -48,10 +48,10 @@ class UsuarioTable extends TableGateway
         );*/
         $id = (int)$album->id;
         if ($id == 0) {
-            $this->insert($data);
+            $this->insert($album);
         } else {
             if ($this->getAlbum($id)) {
-                $this->update($data, array('id' => $id));
+                $this->update($album, array('id' => $id));
             } else {
                 throw new \Exception('Form id does not exist');
             }
