@@ -19,12 +19,14 @@ class Usuario
     public $id;
     public $rol;
     public $email;
+    public $fh_registro;
 
     public function exchangeArray($data)
     {
         $this->id     = (isset($data['id'])) ? $data['id'] : null;
         $this->rol = (isset($data['rol'])) ? $data['rol'] : null;
         $this->email  = (isset($data['email'])) ? $data['email'] : null;
+        $this->fh_registro  = (isset($data['fh_registro'])) ? $data['fh_registro'] : null;
     }
     
     public function setInputFilter(InputFilterInterface $inputFilter)

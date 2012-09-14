@@ -52,15 +52,16 @@ class IndexController extends AbstractActionController
         $request = $this->getRequest();
         if ($request->isPost()) {
             $usuario = new Usuario();
+            print_r($request->getPost());exit;
             $form->setInputFilter($usuario->getInputFilter());
             $form->setData($request->getPost());
+            
 
             if ($form->isValid()) {
                 $usuario->exchangeArray($form->getData());
                 $this->getUsuarioTable()->save($usuario);
-
-                // Redirect to list of albums
-                return $this->redirect()->toRoute('album');
+                
+                return $this->redirect()->toRoute('application');
             }
         }
         
@@ -71,34 +72,54 @@ class IndexController extends AbstractActionController
     public function editAction()
     {
         $form  = new UsuarioForm();
-
-        $id = 1;
-        /*$id = (int) $this->params()->fromRoute('id', 0);
+        
+        $id = (int) $this->params()->fromRoute('id', 0);
         if (!$id) {
             return $this->redirect()->toRoute('index', array('action' => 'edit'));
-        }*/
+        }
         $usuario = $this->getUsuarioTable()->getUser($id);
         
         $form->bind($usuario);
         $form->get('submit')->setAttribute('value', 'Edit');
 
-        /*$request = $this->getRequest();
+        $request = $this->getRequest();
         if ($request->isPost()) {
-            $form->setInputFilter($album->getInputFilter());
+            $form->setInputFilter($usuario->getInputFilter());
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $this->getAlbumTable()->saveAlbum($album);
-
-                // Redirect to list of albums
-                return $this->redirect()->toRoute('album');
+                $this->getUsuarioTable()->save($usuario);
+                return $this->redirect()->toRoute('application');
+                //return $this->redirect('application/index/listado');
+                
             }
-        }*/
+        }
 
         return array('form' => $form);
     }
 
     public function deleteAction()
     {
+        
+        $id = (int) $this->params()->fromRoute('id', 0);
+        if (!$id) {
+            return $this->redirect()->toRoute('application');
+        }
+
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $del = $request->getPost('del', 'No');
+
+            if ($del == 'Yes') {
+                $id = (int) $request->getPost('id');
+                $this->getUsuarioTable()->delete($id);
+            }
+            return $this->redirect()->toRoute('application');
+        }
+
+        return array(
+            'id'    => $id,
+            'usuario' => $this->getUsuarioTable()->getUser($id)
+        );
     }
 }

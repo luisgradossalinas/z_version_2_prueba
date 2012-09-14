@@ -40,18 +40,18 @@ class UsuarioTable extends TableGateway
         return $row;
     }
 
-    public function save(Album $album)
+    public function save(Usuario $usuario)
     {
-        /*$data = array(
-            'nombre' => $album->artist,
-            'apellido'  => $album->title,
-        );*/
-        $id = (int)$album->id;
+        $data = array(
+            'rol' => $usuario->rol,
+            'email'  => $usuario->email,
+        );
+        $id = (int)$usuario->id;
         if ($id == 0) {
-            $this->insert($album);
+            $this->insert($data);
         } else {
-            if ($this->getAlbum($id)) {
-                $this->update($album, array('id' => $id));
+            if ($this->getUser($id)) {
+                $this->update($data, array('id' => $id));
             } else {
                 throw new \Exception('Form id does not exist');
             }
