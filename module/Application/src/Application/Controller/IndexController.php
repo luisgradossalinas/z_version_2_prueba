@@ -28,7 +28,7 @@ class IndexController extends AbstractActionController
         /*return new ViewModel(array(
             'usuarios' => $this->getUsuarioTable()->fetchAll(),
         ));*/
-        
+        //$this->head
         return array(
             'usuarios' => $this->getUsuarioTable()->fetchAll(),
         );
