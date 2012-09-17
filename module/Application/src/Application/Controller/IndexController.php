@@ -25,9 +25,13 @@ class IndexController extends AbstractActionController
     
     public function listadoAction()
     {
-        return new ViewModel(array(
+        /*return new ViewModel(array(
             'usuarios' => $this->getUsuarioTable()->fetchAll(),
-        ));
+        ));*/
+        
+        return array(
+            'usuarios' => $this->getUsuarioTable()->fetchAll(),
+        );
         
         //return array('usuarios' => $this->getUsuarioTable()->fetchAll());
     }
@@ -73,6 +77,9 @@ class IndexController extends AbstractActionController
 
     public function editAction()
     {
+        //var_dump($this->params()); exit;
+        //var_dump($this->getRequest()->getPost());
+        
         $form  = new UsuarioForm();
         
         $id = (int) $this->params()->fromRoute('id', 0);
@@ -92,8 +99,6 @@ class IndexController extends AbstractActionController
             if ($form->isValid()) {
                 $this->getUsuarioTable()->save($usuario);
                 return $this->redirect()->toRoute('application');
-                //return $this->redirect('application/index/listado');
-                
             }
         }
 
