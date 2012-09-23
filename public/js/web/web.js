@@ -1,7 +1,8 @@
 $(document).ready(function(){
     
 
-var mensajes = $('.flash-message'),
+var mensajes = 
+    $('.flash-message'),
                                 s = 'middle',
                                 interval = '3000';
                                 $.each(mensajes, function(k, v){
@@ -28,6 +29,7 @@ var mensajes = $('.flash-message'),
                                     
                                 });
                                 
-  mensajes();
+    
+  //mensajes;
     
 })
