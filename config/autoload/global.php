@@ -13,7 +13,7 @@
 return array(
     'db' => array(
         'driver'         => 'Pdo',
-        'dsn'            => 'mysql:dbname=aptitus_devel;host=localhost'
+        'dsn'            => 'mysql:dbname=floreria;host=localhost'
     ),
     'service_manager' => array(
         'factories' => array(
