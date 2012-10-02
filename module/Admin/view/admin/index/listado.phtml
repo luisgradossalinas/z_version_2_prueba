@@ -1,0 +1,38 @@
+<?php
+$title = 'Users';
+$this->headTitle($title);
+?>
+<div class="hide flash-message success" style="display: none; ">
+	<div class="msgsTime msgYTIE">
+               <div class="contenidoFlashMessage msgYellow mB10 r5">
+                Mensaje de prueba             
+		</div>
+        </div>
+</div>
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<p><a href="http://zend2.pe/application/index/add" class="btn btn-small btn-inverse">Add new user</a></p>
+ 
+
+<table class="table">
+<tr>
+    <th>Cod</th>
+    <th>Rol</th>
+    <th>Email</th>
+    <th>Registro</th>
+    <th>Opciones</th>
+</tr>
+<?php foreach($usuarios as $usuario) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($usuario->id);?></td>
+    <td><?php echo $this->escapeHtml($usuario->rol);?></td>    
+    <td><?php echo $this->escapeHtml($usuario->email);?></td>
+    <td><?php echo $this->escapeHtml($usuario->fh_registro);?></td>
+    <td>
+        <a href="http://zend2.pe/application/index/edit/<?=$usuario->id?>" class="btn btn-small btn-inverse">Edit</a>
+        <a href="http://zend2.pe/application/index/delete/<?=$usuario->id?>" class="btn btn-small btn-inverse">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
